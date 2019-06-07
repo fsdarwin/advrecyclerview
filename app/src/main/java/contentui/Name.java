@@ -3,33 +3,33 @@ package contentui;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class BNAudiobookChapter implements Parcelable {
+public class Name implements Parcelable {
 
     private int part;
     private int chapter;
     private long duration;
 
-    public BNAudiobookChapter(int part, int chapter, long duration) {
+    public Name(int part, int chapter, long duration) {
         this.part = part;
         this.chapter = chapter;
         this.duration = duration;
     }
 
-    protected BNAudiobookChapter(Parcel in) {
+    protected Name(Parcel in) {
         part = in.readInt();
         chapter = in.readInt();
         duration = in.readLong();
     }
 
-    public static final Creator<BNAudiobookChapter> CREATOR = new Creator<BNAudiobookChapter>() {
+    public static final Creator<Name> CREATOR = new Creator<Name>() {
         @Override
-        public BNAudiobookChapter createFromParcel(Parcel in) {
-            return new BNAudiobookChapter(in);
+        public Name createFromParcel(Parcel in) {
+            return new Name(in);
         }
 
         @Override
-        public BNAudiobookChapter[] newArray(int size) {
-            return new BNAudiobookChapter[size];
+        public Name[] newArray(int size) {
+            return new Name[size];
         }
     };
 

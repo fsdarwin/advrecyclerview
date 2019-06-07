@@ -3,33 +3,33 @@ package contentui;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class BNAudiobookPosition implements Parcelable {
+public class Where implements Parcelable {
 
     private int part;
     private int chapter;
     private int position;
 
-    public BNAudiobookPosition(int part, int chapter, int position) {
+    public Where(int part, int chapter, int position) {
         this.part = part;
         this.chapter = chapter;
         this.position = position;
     }
 
-    protected BNAudiobookPosition(Parcel in) {
+    protected Where(Parcel in) {
         part = in.readInt();
         chapter = in.readInt();
         position = in.readInt();
     }
 
-    public static final Creator<BNAudiobookPosition> CREATOR = new Creator<BNAudiobookPosition>() {
+    public static final Creator<Where> CREATOR = new Creator<Where>() {
         @Override
-        public BNAudiobookPosition createFromParcel(Parcel in) {
-            return new BNAudiobookPosition(in);
+        public Where createFromParcel(Parcel in) {
+            return new Where(in);
         }
 
         @Override
-        public BNAudiobookPosition[] newArray(int size) {
-            return new BNAudiobookPosition[size];
+        public Where[] newArray(int size) {
+            return new Where[size];
         }
     };
 

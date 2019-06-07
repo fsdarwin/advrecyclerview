@@ -4,36 +4,36 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-public class BNAudioBookBookmark implements Parcelable {
+public class Mark implements Parcelable {
 
     private int id;
-    private BNAudiobookPosition bookmarkPosition;
+    private Where bookmarkPosition;
     private long modifiedTime;
     private String note;
 
-    BNAudioBookBookmark(int id, BNAudiobookPosition bookmarkPosition, long modifiedTime, String note) {
+    Mark(int id, Where bookmarkPosition, long modifiedTime, String note) {
         this.id = id;
         this.bookmarkPosition = bookmarkPosition;
         this.modifiedTime = modifiedTime;
         this.note = note;
     }
 
-    protected BNAudioBookBookmark(Parcel in) {
+    protected Mark(Parcel in) {
         id = in.readInt();
-        bookmarkPosition = in.readParcelable(BNAudiobookPosition.class.getClassLoader());
+        bookmarkPosition = in.readParcelable(Where.class.getClassLoader());
         modifiedTime = in.readLong();
         note = in.readString();
     }
 
-    public static final Creator<BNAudioBookBookmark> CREATOR = new Creator<BNAudioBookBookmark>() {
+    public static final Creator<Mark> CREATOR = new Creator<Mark>() {
         @Override
-        public BNAudioBookBookmark createFromParcel(Parcel in) {
-            return new BNAudioBookBookmark(in);
+        public Mark createFromParcel(Parcel in) {
+            return new Mark(in);
         }
 
         @Override
-        public BNAudioBookBookmark[] newArray(int size) {
-            return new BNAudioBookBookmark[size];
+        public Mark[] newArray(int size) {
+            return new Mark[size];
         }
     };
 
@@ -45,11 +45,11 @@ public class BNAudioBookBookmark implements Parcelable {
         this.id = id;
     }
 
-    public BNAudiobookPosition getBookmarkPosition() {
+    public Where getBookmarkPosition() {
         return bookmarkPosition;
     }
 
-    public void setBookmarkPosition(BNAudiobookPosition bookmarkPosition) {
+    public void setBookmarkPosition(Where bookmarkPosition) {
         this.bookmarkPosition = bookmarkPosition;
     }
 

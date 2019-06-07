@@ -5,35 +5,35 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class BNAudiobookProduct implements Parcelable {
+public class Sell implements Parcelable {
 
     private String title;
     private String author;
     private String narrator;
     private String imageURL;
-    private ArrayList<BNAudiobookChapter> chapterList;
-    private BNAudiobookPosition lastListenedPosition;
-    private ArrayList<BNAudioBookBookmark> bookmarkList;
+    private ArrayList<Name> chapterList;
+    private Where lastListenedPosition;
+    private ArrayList<Mark> bookmarkList;
 
-    protected BNAudiobookProduct(Parcel in) {
+    protected Sell(Parcel in) {
         title = in.readString();
         author = in.readString();
         narrator = in.readString();
         imageURL = in.readString();
-        chapterList = in.createTypedArrayList(BNAudiobookChapter.CREATOR);
-        lastListenedPosition = in.readParcelable(BNAudiobookPosition.class.getClassLoader());
-        bookmarkList = in.createTypedArrayList(BNAudioBookBookmark.CREATOR);
+        chapterList = in.createTypedArrayList(Name.CREATOR);
+        lastListenedPosition = in.readParcelable(Where.class.getClassLoader());
+        bookmarkList = in.createTypedArrayList(Mark.CREATOR);
     }
 
-    public static final Creator<BNAudiobookProduct> CREATOR = new Creator<BNAudiobookProduct>() {
+    public static final Creator<Sell> CREATOR = new Creator<Sell>() {
         @Override
-        public BNAudiobookProduct createFromParcel(Parcel in) {
-            return new BNAudiobookProduct(in);
+        public Sell createFromParcel(Parcel in) {
+            return new Sell(in);
         }
 
         @Override
-        public BNAudiobookProduct[] newArray(int size) {
-            return new BNAudiobookProduct[size];
+        public Sell[] newArray(int size) {
+            return new Sell[size];
         }
     };
 
@@ -69,27 +69,27 @@ public class BNAudiobookProduct implements Parcelable {
         this.imageURL = imageURL;
     }
 
-    public ArrayList<BNAudiobookChapter> getChapterList() {
+    public ArrayList<Name> getChapterList() {
         return chapterList;
     }
 
-    public void setChapterList(ArrayList<BNAudiobookChapter> chapterList) {
+    public void setChapterList(ArrayList<Name> chapterList) {
         this.chapterList = chapterList;
     }
 
-    public BNAudiobookPosition getLastListenedPosition() {
+    public Where getLastListenedPosition() {
         return lastListenedPosition;
     }
 
-    public void setLastListenedPosition(BNAudiobookPosition lastListenedPosition) {
+    public void setLastListenedPosition(Where lastListenedPosition) {
         this.lastListenedPosition = lastListenedPosition;
     }
 
-    public ArrayList<BNAudioBookBookmark> getBookmarkList() {
+    public ArrayList<Mark> getBookmarkList() {
         return bookmarkList;
     }
 
-    public void setBookmarkList(ArrayList<BNAudioBookBookmark> bookmarkList) {
+    public void setBookmarkList(ArrayList<Mark> bookmarkList) {
         this.bookmarkList = bookmarkList;
     }
 

@@ -22,8 +22,6 @@ import android.util.Log;
 import com.h6ah4i.android.widget.advrecyclerview.expandable.RecyclerViewExpandableItemManager;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 import androidx.core.util.Pair;
@@ -42,7 +40,7 @@ public class ExpandableDataProvider extends AbstractExpandableDataProvider {
 
     public ExpandableDataProvider() {
 
-        List<BNAudiobookChapter> chapterData;
+        List<Name> chapterData;
 
         mData = new ArrayList<>();
 
@@ -90,16 +88,16 @@ public class ExpandableDataProvider extends AbstractExpandableDataProvider {
 //            mData.add(new Pair<>(group, children));
 //        }
 
-    public List<BNAudiobookChapter> getPartsAndChapters(int size) {
+    public List<Name> getPartsAndChapters(int size) {
 
         if (size > 0) {
-            ArrayList<BNAudiobookChapter> chapters = new ArrayList<>();
+            ArrayList<Name> chapters = new ArrayList<>();
             for (int j = 0; j < size; j++) {
                 for (int i = 0; i < 5; i++) {
                     int part = j;
                     int chap = i;
                     long dur = (long) (Math.random() * 7200000);
-                    chapters.add(new BNAudiobookChapter(part, chap, dur));
+                    chapters.add(new Name(part, chap, dur));
                 }
             }
             return chapters;

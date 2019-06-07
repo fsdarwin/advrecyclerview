@@ -8,11 +8,11 @@ public class CreateTestData {
 
     public static final String TAG = "Frank ";
 
-    public static ArrayList<BNAudiobookProduct> getProducts(int size) {
+    public static ArrayList<Sell> getProducts(int size) {
 
         if (size > 0) {
 
-            ArrayList<BNAudiobookProduct> productData = new ArrayList<>();
+            ArrayList<Sell> productData = new ArrayList<>();
 
             for (int i = 0; i < size; i++) {
                 int num = i + 1;
@@ -20,9 +20,9 @@ public class CreateTestData {
                 String author = "Author_" + num;
                 String narator = "Narator_" + num;
                 String image = "ImageURL_" + num;
-                ArrayList<BNAudiobookChapter> chapters = getChapters(size);
-                BNAudiobookPosition position = getSinglePosition();
-                ArrayList<BNAudioBookBookmark> bookmarks = getBookmarks(size);
+                ArrayList<Name> chapters = getChapters(size);
+                Where position = getSinglePosition();
+                ArrayList<Mark> bookmarks = getBookmarks(size);
             }
 
             return productData;
@@ -32,12 +32,12 @@ public class CreateTestData {
     }
 
 
-    public static ArrayList<BNAudioBookBookmark> getBookmarks(int size) {
+    public static ArrayList<Mark> getBookmarks(int size) {
 
         if (size > 0) {
-            ArrayList<BNAudioBookBookmark> bookmarkData = new ArrayList<>();
+            ArrayList<Mark> bookmarkData = new ArrayList<>();
 
-            ArrayList<BNAudiobookPosition> BmPositions = getPositions(size);
+            ArrayList<Where> BmPositions = getPositions(size);
 
             for (int i = 0; i < size; i++) {
                 long modifiedTime = System.currentTimeMillis();
@@ -45,10 +45,10 @@ public class CreateTestData {
                 String note;
                 if (i % 3 == 0) {
                     note = "This is a note placeholder. It holds a place for a note here. It does a really god job of holding a place for a note. I think it deserves an award for note place holding.";
-                    bookmarkData.add(new BNAudioBookBookmark(num, BmPositions.get(i), modifiedTime, note));
+                    bookmarkData.add(new Mark(num, BmPositions.get(i), modifiedTime, note));
                 } else {
                     note = "";
-                    bookmarkData.add(new BNAudioBookBookmark(num, BmPositions.get(i), modifiedTime, note));
+                    bookmarkData.add(new Mark(num, BmPositions.get(i), modifiedTime, note));
                 }
             }
             return bookmarkData;
@@ -56,43 +56,43 @@ public class CreateTestData {
         return null;
     }
 
-    public static ArrayList<BNAudiobookPosition> getPositions(int number) {
+    public static ArrayList<Where> getPositions(int number) {
 
         if (number > 0) {
-            ArrayList<BNAudiobookPosition> positionData = new ArrayList<>();
+            ArrayList<Where> positionData = new ArrayList<>();
 
             for (int i = 0; i < number; i++) {
                 int chap = i + 1;
                 int pos = (int) (Math.random() * 7200);
-                positionData.add(new BNAudiobookPosition(0, chap, pos));
+                positionData.add(new Where(0, chap, pos));
             }
             return positionData;
         }
         return null;
     }
 
-    public static BNAudiobookPosition getSinglePosition() {
+    public static Where getSinglePosition() {
 
-        BNAudiobookPosition positionData;
+        Where positionData;
 
         int chap = (int) (Math.random() * 21);
         int pos = (int) (Math.random() * 7200);
-        positionData = new BNAudiobookPosition(0, chap, pos);
+        positionData = new Where(0, chap, pos);
 
         return positionData;
 
     }
 
-    public static ArrayList<BNAudiobookChapter> getChapters(int size) {
+    public static ArrayList<Name> getChapters(int size) {
 
         if (size > 0) {
-            ArrayList<BNAudiobookChapter> chapters = new ArrayList<>();
+            ArrayList<Name> chapters = new ArrayList<>();
             for (int j = 0; j < size; j++) {
                 for (int i = 0; i < 5; i++) {
                     int part = j;
                     int chap = i;
                     long dur = (long) (Math.random() * 7200000);
-                    chapters.add(new BNAudiobookChapter(part, chap, dur));
+                    chapters.add(new Name(part, chap, dur));
                 }
             }
             return chapters;
@@ -101,7 +101,7 @@ public class CreateTestData {
     }
 
     public static ArrayList<BookPart> getPartsAndChapters(int size) {
-        ArrayList<BNAudiobookChapter> chapterData;
+        ArrayList<Name> chapterData;
         ArrayList<BookPart> bookPartList = null;
         BookPart bookPart = null;
         BookChapter bookChapter;
